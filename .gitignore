@@ -1,1 +1,6 @@
-CVS
+CMakeCache.txt
+CMakeFiles/*
+Makefile
+cmake_install.cmake
+gema
+
