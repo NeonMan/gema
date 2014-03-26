@@ -9,8 +9,8 @@ add_definitions(-DTRACE)
 set (CMAKE_C_FLAGS "-Wall -O2")
 
 ## Version.
-set (Tutorial_VERSION_MAJOR 0)
-set (Tutorial_VERSION_MINOR 0)
+set (VERSION_MAJOR 1)
+set (VERSION_MINOR 14)
 
 ## Objects
 set (SOURCES ${SOURCES} action.c)
@@ -28,3 +28,9 @@ add_executable (gema ${SOURCES})
 
 ## Install targets
 install (TARGETS gema DESTINATION bin)
+
+## Targets
+set (PKG_NAME "${CMAKE_PROJECT_NAME}_${VERSION_MAJOR}.${VERSION_MINOR}")
+add_custom_target(dist
+    COMMAND git archive --format tar.gz --prefix "${PKG_NAME}/" master -o "${PKG_NAME}.tar.gz")
+
