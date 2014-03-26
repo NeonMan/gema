@@ -25,3 +25,6 @@ set (SOURCES ${SOURCES} gema.c)
 
 ## Executables
 add_executable (gema ${SOURCES})
+
+## Install targets
+install (TARGETS gema DESTINATION bin)
