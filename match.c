@@ -85,6 +85,8 @@
 #include <string.h>
 #include <assert.h>
 
+#define _unused(x) ((void)x) /*Prevent the compiler from marking a var as unused */
+
 boolean case_insensitive = FALSE;
 boolean ignore_whitespace = FALSE;
 
@@ -902,6 +904,7 @@ try_match( CIStream in, Pattern pat, COStream out, Goal goal )
   }
   else {
     const unsigned char* as;
+    _unused(as); /*Prevent unused warning when -not- in debug mode */
     enum Translation_Status save = translation_status;
     translation_status = Translate_Complete;
     /* pattern matches, so perform the specified action. */
@@ -946,6 +949,7 @@ try_patterns( int ch, CIStream in, MarkBuf* start, Patterns p, COStream out,
       if ( sub != NULL ) {
 	if ( sub->dispatch != NULL ) {
 	  int xc;
+          _unused(xc); /*Prevent unused warning when -not- in debug mode */
 	  if ( start == NULL ) {
 	    start = &mark;
 	    cis_mark(in, start);
