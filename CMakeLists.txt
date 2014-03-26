@@ -33,4 +33,5 @@ install (TARGETS gema DESTINATION bin)
 set (PKG_NAME "${CMAKE_PROJECT_NAME}_${VERSION_MAJOR}.${VERSION_MINOR}")
 add_custom_target(dist
     COMMAND git archive --format tar.gz --prefix "${PKG_NAME}/" master -o "${PKG_NAME}.tar.gz")
-
+add_custom_target(doc
+    COMMAND cd doc && make && cd ..)
